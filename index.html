@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mass Email Form</title>
+  </head>
+  <body>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      form label{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        font-size: 1.25em;
+      }
+      form h3{
+        margin-bottom: 0;
+      }
+      form label[for='test-email']{
+        display: inline;
+      }
+    </style>
+    <form action="/api/email.php" method="post" class="email-form">
+      <h1>Email Form</h1>
+      <label for="subject"
+        >Subject: <input type="text" name="subject" required value="test" placeholder="Subject"
+      /></label>
+      <label for="message"
+        >Message:
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          required"
+          placeholder="Paste HTML code..."></textarea>
+          <!-- test email script
+ <html>
+    <body>
+        <h1>Thanks you for joining with us!</h1>
+        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;">
+            <tr>
+                <th>Name:</th><td>CodexWorld</td>
+            </tr>
+            <tr style="background-color: #e0e0e0;">
+                <th>Email:</th><td>contact@codexworld.com</td>
+            </tr>
+            <tr>
+                <th>Website:</th><td><a href="http://www.codexworld.com">www.codexworld.com</a></td>
+            </tr>
+        </table>
+    </body>
+    <!-- </html>-->
+      </label>
+      <h3>Email Testing Mode</h3>
+      <label for="test-email">True:<input type="radio" name="test-email"  value="true" checked>
+        False:<input type="radio" name="test-email"  value="false">
+      </label>
+
+      <input type="submit" name="submit" value="Send Email" />
+    </form>
+    <iframe src="" frameborder="0" ALLOWTRANSPARENCY="true" style="width:650px;height:300px" id="html-frame">
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+    <script>
+      const textarea = document.getElementById("message");
+      const frame = document.getElementById('html-frame').contentWindow.document;
+
+      frame.open();
+      textarea.onkeyup = (evt) => {
+        // console.log(evt.target.value);
+        frame.body.innerHTML = "";
+        frame.write(textarea.value);
+      };
+      frame.close();
+    </script>
+  </body>
+</html>
