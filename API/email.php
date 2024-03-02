@@ -35,7 +35,6 @@ if(isset($_POST['submit'])) {
     mail($email_to, $subject, $message, "From: test@bluesmokemedia.net" . "\r\n" . "Content-Type: text/html; charset=utf-8",
           "-ftest@bluesmokemedia.net");
   }
-
 ?>
 
 

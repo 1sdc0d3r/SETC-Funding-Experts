@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mass Email Form</title>
+    <title>SETC Funding Experts</title>
   </head>
   <body>
     <style>
+      body{
+        background-color: beige;
+      }
       form {
         display: flex;
         flex-direction: column;
@@ -25,9 +28,19 @@
       form label[for='test-email']{
         display: inline;
       }
+      form textarea {
+        background-color: rgb(248, 197, 167);
+      }
+      iframe{
+        border: 2px solid black;
+        margin-top: 2em;
+        background-color: rgb(183, 219, 146);
+        background-color: rgb(219, 219, 219);
+      }
+
     </style>
     <form action="/api/email.php" method="post" class="email-form">
-      <h1>Email Form</h1>
+      <h1>SETC Funding Experts</h1>
       <label for="subject"
         >Subject: <input type="text" name="subject" required value="test" placeholder="Subject"
       /></label>
@@ -40,10 +53,7 @@
           rows="10"
           required"
           placeholder="Paste HTML code..."></textarea>
-          <!-- test email script
- <html>
-    <body>
-        <h1>Thanks you for joining with us!</h1>
+          <!-- <h1>Thanks you for joining with us!</h1>
         <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;">
             <tr>
                 <th>Name:</th><td>CodexWorld</td>
@@ -54,9 +64,10 @@
             <tr>
                 <th>Website:</th><td><a href="http://www.codexworld.com">www.codexworld.com</a></td>
             </tr>
-        </table>
-    </body>
-    <!-- </html>-->
+        </table> -->
+    <iframe src="" frameborder="0" ALLOWTRANSPARENCY="true" style="width:650px;height:300px" id="html-frame">
+      <p>Your browser does not support iframes.</p>
+    </iframe>
       </label>
       <h3>Email Testing Mode</h3>
       <label for="test-email">True:<input type="radio" name="test-email"  value="true" checked>
@@ -65,9 +76,7 @@
 
       <input type="submit" name="submit" value="Send Email" />
     </form>
-    <iframe src="" frameborder="0" ALLOWTRANSPARENCY="true" style="width:650px;height:300px" id="html-frame">
-      <p>Your browser does not support iframes.</p>
-    </iframe>
+
     <script>
       const textarea = document.getElementById("message");
       const frame = document.getElementById('html-frame').contentWindow.document;
@@ -78,6 +87,7 @@
         frame.body.innerHTML = "";
         frame.write(textarea.value);
       };
+      // frame.body.innerHTML = "View your message code here!";
       frame.close();
     </script>
   </body>
