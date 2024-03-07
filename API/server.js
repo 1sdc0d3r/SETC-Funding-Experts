@@ -34,8 +34,8 @@ app.get('/api', (req, res) => {
     connection.query(sql, (err, result) => {
         if (err) throw err;
         console.log('get /')
-        // res.send(result.map(e => e.Email));
-        res.send(process.env);
+        res.send(result.map(e => e.Email));
+        // res.send(process.env);
     });
 });
 
