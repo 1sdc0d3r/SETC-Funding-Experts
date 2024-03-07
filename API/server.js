@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+console.log(process.env);
 // app.js file.
 var express = require('express');
 var app = express();
@@ -7,13 +8,18 @@ var mysql = require('mysql2');
 const cors = require("cors")
 app.use(express.json());
 app.use(cors());
-
+const {
+    HOST,
+    USER,
+    PASSWORD,
+    DATABASE
+} = process.env;
 // 1. Require the connection to the database.
 var connection = mysql.createConnection({
-    host: "66.198.240.11",
-    user: "bluesmo1_root",
-    password: "password",
-    database: "bluesmo1_SETC_Funding_Experts"
+    host: HOST,
+    user: USER,
+    password: PASSWORD,
+    database: DATABASE
 })
 connection.connect((err => {
     if (err) throw err;
@@ -28,7 +34,8 @@ app.get('/api', (req, res) => {
     connection.query(sql, (err, result) => {
         if (err) throw err;
         console.log('get /')
-        res.send(result.map(e => e.Email));
+        // res.send(result.map(e => e.Email));
+        res.send(process.env);
     });
 });
 
