@@ -1,11 +1,13 @@
 require('dotenv').config();
 
-console.log(process.env);
+// console.log(process.env);
 // app.js file.
 var express = require('express');
 var app = express();
 var mysql = require('mysql2');
 const cors = require("cors")
+const jwt = require("jsonwebtoken");
+
 app.use(express.json());
 app.use(cors());
 const {

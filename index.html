@@ -28,6 +28,9 @@
       form label[for='test-email']{
         display: inline;
       }
+      form input[name='subject']{
+        font-size: 1em;
+      }
       form textarea {
         background-color: rgb(248, 197, 167);
       }
@@ -42,7 +45,7 @@
     <form action="/api/email.php" method="post" class="email-form">
       <h1>SETC Funding Experts</h1>
       <label for="subject"
-        >Subject: <input type="text" name="subject" required value="test" placeholder="Subject"
+        >Subject: <input type="text" name="subject" required placeholder="Subject"
       /></label>
       <label for="message"
         >Message:
@@ -53,18 +56,6 @@
           rows="10"
           required"
           placeholder="Paste HTML code..."></textarea>
-          <!-- <h1>Thanks you for joining with us!</h1>
-        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;">
-            <tr>
-                <th>Name:</th><td>CodexWorld</td>
-            </tr>
-            <tr style="background-color: #e0e0e0;">
-                <th>Email:</th><td>contact@codexworld.com</td>
-            </tr>
-            <tr>
-                <th>Website:</th><td><a href="http://www.codexworld.com">www.codexworld.com</a></td>
-            </tr>
-        </table> -->
     <iframe src="" frameborder="0" ALLOWTRANSPARENCY="true" style="width:650px;height:300px" id="html-frame">
       <p>Your browser does not support iframes.</p>
     </iframe>
