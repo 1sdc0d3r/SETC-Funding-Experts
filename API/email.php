@@ -6,7 +6,7 @@ if(isset($_POST['submit'])) {
   $message = $_POST['message'];
   $emailProofing = $_POST['test-email'];
   $proofEmail = "2355braden@gmail.com";
-  $emailReqUrl = "http://michael.bluesmokemedia.net/api/";
+  $emailReqUrl = "https://setc-funding-experts.bluesmokemedia.net/api";
   //! Required Vars
 
   function died($error) {
@@ -34,6 +34,7 @@ if(isset($_POST['submit'])) {
     $email_to = $emailArr[$i];
     mail($email_to, $subject, $message, "From: test@bluesmokemedia.net" . "\r\n" . "Content-Type: text/html; charset=utf-8",
           "-ftest@bluesmokemedia.net");
+    sleep(.035); //prevent overloading
   }
 ?>
 
